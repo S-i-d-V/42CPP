@@ -11,25 +11,18 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
-NAME =
-SRCS =
-OBJS =
+NAME = megaphone
+SRCS = megaphone.cpp
 
 #REGLES
 all: $(NAME)
 
-%.o:%.c
-	@$(CC) $(FLAGS) -o $@ -c $<
-
 $(NAME): $(OBJS)
-	@$(CC) -o $(NAME) $(OBJS)
+	@$(CC) $(SRCS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled with success.$(CLEAR)"
 
-clean:
-	@$(RM) $(OBJS)
-
-fclean:	clean
+clean:	clean
 	@$(RM) $(NAME)
 	@echo "$(RED)$(NAME) deleted with success.$(CLEAR)"
 
-re: fclean all
+re: clean all

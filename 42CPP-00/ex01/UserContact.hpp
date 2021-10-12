@@ -1,6 +1,12 @@
+#ifndef USERCONTACT_H
+# define USERCONTACT_H
+
 #include <iostream>
 
-int	main()
-{
-	return 0;
-}
+class UserContact {
+	public:
+		UserContact(void);
+		~UserContact(void);
+};
+
+#endif

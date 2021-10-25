@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
-NAME =
-SRCS =
+NAME = ZombieLand
+SRCS = main.cpp Zombie.cpp ZombieHorde.cpp
 
 #REGLES
 all: $(NAME)

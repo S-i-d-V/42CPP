@@ -11,7 +11,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
-NAME = ZombieLand
+NAME = ZombieCreator
 SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 #REGLES

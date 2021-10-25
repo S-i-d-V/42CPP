@@ -6,13 +6,13 @@ GREEN =`tput setaf 2`
 CLEAR =`tput sgr0`
 
 #GENERAL
-CC = g++
+CC = g++ -g
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
 NAME = phonebook
-SRCS = main.cpp UserContact.cpp
+SRCS = main.cpp UserContact.cpp PhoneBook.cpp
 
 #REGLES
 all: $(NAME)

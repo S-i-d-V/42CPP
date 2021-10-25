@@ -1,9 +1,10 @@
 #ifndef USERCONTACT_H
 # define USERCONTACT_H
 
-#include <iostream>
-#include <iomanip>
-#include <cstring>
+# include "PhoneBook.hpp"
+# include <iostream>
+# include <iomanip>
+# include <cstring>
 
 class UserContact {
 	public:

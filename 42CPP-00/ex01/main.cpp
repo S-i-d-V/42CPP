@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void	clear_output(void)
 {
@@ -174,7 +174,7 @@ void	search_contact(UserContact contact[8])
 int	main()
 {
 	std::string buff;
-	UserContact contact[8];
+	PhoneBook Phone_Book;
 
 	welcome_output();
 	while (1)
@@ -184,9 +184,9 @@ int	main()
 		if (buff == "EXIT")
 			return 0;
 		else if (buff == "ADD")
-			add_contact(contact);
+			add_contact(Phone_Book.contact);
 		else if (buff == "SEARCH")
-			search_contact(contact);
+			search_contact(Phone_Book.contact);
 	}
 	return 0;
 }

@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
-NAME =
-SRCS =
+NAME = GlobalBanksters
+SRCS = Account.cpp tests.cpp
 
 #REGLES
 all: $(NAME)

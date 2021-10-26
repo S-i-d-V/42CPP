@@ -25,6 +25,10 @@ int	Account::getNbWithdrawals(void){
 	return (Account::_totalNbWithdrawals);
 }
 
+int	Account::checkAmount( void ) const{
+	return (this->_amount);
+}
+
 Account::Account(int initial_deposit){
 	Account::_displayTimestamp();
 	this->_accountIndex = this->_nbAccounts;

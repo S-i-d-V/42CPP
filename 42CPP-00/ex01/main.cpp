@@ -43,29 +43,29 @@ void	add_contact(UserContact contact[8])
 	add_output();
 	for (int i = 0; i < 8; i++)
 	{
-		if (contact[i].is_set == -1)
+		if (contact[i].get_set() == false)
 		{
-			contact[i].is_set = 1;
+			contact[i].set_set(true);
 
 			std::cout << "\033[1;35mPrenom : \033[0m";
 			std::getline(std::cin, input);
-			contact[i].fname = input;
+			contact[i].set_fname(input);
 
 			std::cout << "\033[1;35mNom de famille : \033[0m";
 			std::getline(std::cin, input);
-			contact[i].lname = input;
+			contact[i].set_lname(input);
 
 			std::cout << "\033[1;35mSurnom : \033[0m";
 			std::getline(std::cin, input);
-			contact[i].nickname = input;
+			contact[i].set_nickname(input);
 
 			std::cout << "\033[1;35mNumero de telephone : \033[0m";
 			std::getline(std::cin, input);
-			contact[i].phone = input;
+			contact[i].set_phone(input);
 
 			std::cout << "\033[1;35mPire secret : \033[0m";
 			std::getline(std::cin, input);
-			contact[i].secret = input;
+			contact[i].set_secret(input);
 			clear_output();
 			welcome_output();
 			return;
@@ -119,18 +119,18 @@ void	find_contact(UserContact contact[8])
 		welcome_output();
 		std::cout << "\033[1;31mIndex invalide !\033[0m" << std::endl;
 	}
-	else if (contact[index - 1].is_set != -1)
+	else if (contact[index - 1].get_set() == true)
 	{
 		clear_output();
 		welcome_output();
 		std::cout << "\033[1;34m___________________________________________\033[0m" << std::endl;
-		std::cout << "\033[1;35m       - Fiche du contact numero \033[0m" << index << " -       " << std::endl;
+		std::cout << "\033[1;35m       - Fiche du contact numero " << index << " -       \033[0m" << std::endl;
 		std::cout << "\033[1;34m___________________________________________\033[0m" << std::endl;
-		std::cout << "\033[1;35mPRENOM        \033[1;34m|\033[0m " << contact[index - 1].fname << std::endl;
-		std::cout << "\033[1;35mNOM           \033[1;34m|\033[0m " << contact[index - 1].lname << std::endl;
-		std::cout << "\033[1;35mSURNOM        \033[1;34m|\033[0m " << contact[index - 1].nickname << std::endl;
-		std::cout << "\033[1;35mTELEPHONE     \033[1;34m|\033[0m " << contact[index - 1].phone << std::endl;
-		std::cout << "\033[1;35mSECRET SOMBRE \033[1;34m|\033[0m " << contact[index - 1].secret << std::endl;
+		std::cout << "\033[1;35mPRENOM        \033[1;34m|\033[0m " << contact[index - 1].get_fname() << std::endl;
+		std::cout << "\033[1;35mNOM           \033[1;34m|\033[0m " << contact[index - 1].get_lname() << std::endl;
+		std::cout << "\033[1;35mSURNOM        \033[1;34m|\033[0m " << contact[index - 1].get_nickname() << std::endl;
+		std::cout << "\033[1;35mTELEPHONE     \033[1;34m|\033[0m " << contact[index - 1].get_phone() << std::endl;
+		std::cout << "\033[1;35mSECRET SOMBRE \033[1;34m|\033[0m " << contact[index - 1].get_secret() << std::endl;
 		std::cout << "\033[1;34m___________________________________________\033[0m" << std::endl;
 	}
 	else
@@ -143,11 +143,16 @@ void	find_contact(UserContact contact[8])
 
 void	search_contact(UserContact contact[8])
 {
+	if (contact[0].get_set() == false)
+	{
+		std::cout << "\033[1;31mRepertoire vide !\033[0m" << std::endl;
+		return;
+	}
 	clear_output();
 	search_output();
 	for (int i = 0; i < 8; i++)
 	{
-		if (contact[i].is_set != -1)
+		if (contact[i].get_set() == true)
 		{
 			std::cout << std::setw(10) << std::to_string(i + 1) << "|";
 			std::string str = contact[i].get_fname();

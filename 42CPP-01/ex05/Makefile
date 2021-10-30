@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
-NAME = Western
-SRCS = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+NAME = Karen
+SRCS = Karen.cpp main.cpp
 
 #REGLES
 all: $(NAME)

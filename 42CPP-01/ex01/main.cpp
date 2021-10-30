@@ -1,7 +1,6 @@
 #include "Zombie.hpp"
 
-int	main(int ac, char **av)
-{
+int	main(int ac, char **av){
 	std::cout << "\033[34;1mHorde de Mike :\033[0m" << std::endl;
 	int NbZombie = 1;
 	Zombie *HordeAlloced = zombieHorde(NbZombie, "Georges");

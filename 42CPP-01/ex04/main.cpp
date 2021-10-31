@@ -35,32 +35,38 @@ std::string replace_line(std::string line, char *s1, char *s2){
 		if (line.compare(i, to_replace.length(), to_replace) == 0){
 			line.erase(i, to_replace.length());
 			line.insert(i, replace_to);
-			i += replace_to.length();
+			i += replace_to.length() - 1;
 		}
 	}
 	return (line);
 }
 
 int	main(int ac, char **av){
-	if (ac == 4)
-	{
+	if (ac == 4){
 		if (check_args(av) == 1)
 			return (0);
 		std::ifstream ifs(av[1]);
 		std::ofstream ofs(get_filename(av[1]));
 		std::string line;
 		std::getline(ifs, line);
-		while (ifs.eof() == false)
-		{
+		if (ifs.eof() == true){
 			if (line.find(av[2]) < line.length())
 				ofs << replace_line(line, av[2], av[3]);
 			else
 				ofs << line;
-			std::getline(ifs, line);
-			if (ifs.eof() == false)
-				ofs << std::endl;
+		}
+		while (ifs.eof() == false){
+			if (line.find(av[2]) < line.length())
+				ofs << replace_line(line, av[2], av[3]) << std::endl;
 			else
-				ofs << std::endl << line << std::endl;
+				ofs << line << std::endl;
+			std::getline(ifs, line);
+			if (ifs.eof() == true){
+				if (line.find(av[2]) < line.length())
+					ofs << replace_line(line, av[2], av[3]);
+				else
+					ofs << line;
+			}
 		}
 	}
 	else

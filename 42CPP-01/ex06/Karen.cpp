@@ -25,6 +25,8 @@ void Karen::complain(std::string level){
 			this->warning();
 		case 3:
 			this->error();
+		default:
+			std::cout << "<Karen> Blablablabla Blablabla..." << std::endl;
 	}
 }
 

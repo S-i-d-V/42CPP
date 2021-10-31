@@ -1,7 +1,7 @@
 #include "Western.hpp"
 
 HumanA::HumanA(std::string chosen_name, Weapon& weapon_chosen): name(chosen_name), weapon(weapon_chosen){
-	std::cout << name << " has been created with a" << weapon.getType() << "." << std::endl;
+	std::cout << name << " has been created with a " << weapon.getType() << "." << std::endl;
 }
 
 HumanA::~HumanA(void){

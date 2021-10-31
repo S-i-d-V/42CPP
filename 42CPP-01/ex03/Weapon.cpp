@@ -13,7 +13,7 @@ void	Weapon::setType(std::string weapon){
 	this->type = weapon;
 }
 
-std::string	Weapon::getType(void){
+std::string&	Weapon::getType(void){
 	return (this->type);
 }
 

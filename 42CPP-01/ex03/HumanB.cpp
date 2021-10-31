@@ -2,6 +2,7 @@
 
 HumanB::HumanB(std::string name_chosen): name(name_chosen){
 	std::cout << name_chosen << " has been created." << std::endl;
+	weapon = nullptr;
 }
 
 HumanB::~HumanB(void){
@@ -13,5 +14,8 @@ void	HumanB::setWeapon(Weapon &weapon_chosen){
 }
 
 void	HumanB::attack(void){
-	std::cout << name << " attacks with his " << weapon->getType() << "." << std::endl;
+	if (weapon != nullptr)
+		std::cout << name << " attacks with his " << weapon->getType() << "." << std::endl;
+	else
+		std::cout << name << " tried to attack but got no weapon." << std::endl;
 }

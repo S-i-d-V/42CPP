@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 #PROJET
-NAME =
-SRCS =
+NAME = FixedPoint
+SRCS = main.cpp Fixed.hpp Fixed.cpp
 
 #REGLES
 all: $(NAME)

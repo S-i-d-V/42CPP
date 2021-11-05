@@ -11,7 +11,6 @@ class DiamondTrap : public ScavTrap, public FragTrap{
 
 		DiamondTrap& 	operator=(DiamondTrap const& rhs);
 
-		void			setName(std::string const name);
 		std::string 	getName() const;
 
 		void	attack(std::string const& target);

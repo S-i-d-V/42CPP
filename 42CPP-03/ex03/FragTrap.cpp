@@ -6,24 +6,25 @@
 //Constructeurs/Destructeurs
 FragTrap::FragTrap(){
 	std::cout << "FragTrap default constructor called" << std::endl;
-	setName("Default");
-	setHitpoints(100);
-	setEnergy(100);
-	setDamage(30);
+	_name = "Default";
+	_hitpoints = 100;
+	_energy = 100;
+	_damage = 30;
 	return;
 }
 
 FragTrap::FragTrap(FragTrap const &src){
 	std::cout << "FragTrap copy constructor called from " << src.getName() << std::endl;
 	*this = src;
+	return;
 }
 
 FragTrap::FragTrap(std::string name){
 	std::cout << "FragTrap constructor called for " << name << std::endl;
-	setName(name);
-	setHitpoints(100);
-	setEnergy(100);
-	setDamage(30);
+	_name = name;
+	_hitpoints = 100;
+	_energy = 100;
+	_damage = 30;
 	return;
 }
 
@@ -34,17 +35,18 @@ FragTrap::~FragTrap(){
 
 //Fonction membre
 void	FragTrap::attack(std::string const& target){
-	std::cout << getName() << " attack " << target << " with FragTrap weapon, causing " << getDamage() << " points of damage." << std::endl;
+	std::cout << _name << " attack " << target << " with FragTrap weapon, causing " << _damage << " points of damage." << std::endl;
 }
 
 void	FragTrap::highFivesGuys(){
-	std::cout << getName() << " said : 'Amazing guyz ! High five !'" << std::endl;
+	std::cout << _name << " said : 'Amazing guyz ! High five !'" << std::endl;
 }
 
 //Operateurs
 FragTrap&	FragTrap::operator=(FragTrap const& rhs){
-	setName(rhs.getName());
-	setHitpoints(rhs.getHitpoints());
-	setEnergy(rhs.getEnergy());
-	setDamage(rhs.getDamage());
+	_name = rhs._name;
+	_hitpoints = rhs._hitpoints;
+	_energy = rhs._energy;
+	_damage = rhs._damage;
+	return (*this);
 }

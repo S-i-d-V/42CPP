@@ -3,87 +3,74 @@
 //Constructeurs/Destructeurs
 ClapTrap::ClapTrap(){
 	std::cout << "ClapTrap default constructor called" << std::endl;
-	setName("Default");
-	setHitpoints(10);
-	setEnergy(10);
-	setDamage(0);
+	_name = "Default";
+	_hitpoints = 10;
+	_energy = 10;
+	_damage = 0;
 	return;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src){
-	std::cout << "Claptrap copy constructor called from " << src.getName() << std::endl;
+	std::cout << "Claptrap copy constructor called from " << src._name << std::endl;
 	*this = src;
+	return;
 }
 
 
 ClapTrap::ClapTrap(std::string const name){
 	std::cout << "ClapTrap constructor called from " << name << std::endl;
-	setName(name);
-	setHitpoints(10);
-	setEnergy(10);
-	setDamage(0);
+	_name = name;
+	_hitpoints = 10;
+	_energy = 10;
+	_damage = 0;
 	return;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap destructor called for " << getName() << std::endl;
+	std::cout << "ClapTrap destructor called for " << _name << std::endl;
 	return;
 }
 
 //Member functions
 void	ClapTrap::attack(std::string const& target){
-	std::cout << getName() << " attack " << target << ", causing " << getDamage() << " points of damage." << std::endl;
+	std::cout << _name << " attack " << target << ", causing " << _damage << " points of damage." << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	std::cout << getName() << " loose " << amount << " hitpoints." << std::endl;
-	setHitpoints(getHitpoints() - amount);
+	std::cout << _name << " loose " << amount << " hitpoints, and now have ";
+	_hitpoints -= amount;
+	std::cout << _hitpoints << "." << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount){
-	std::cout << getName() << " recover " << amount << " hitpoints." << std::endl;
-	setHitpoints(getHitpoints() + amount);
+	std::cout << _name << " recover " << amount << " hitpoints, and now have ";
+	_hitpoints += amount;
+	std::cout << _hitpoints << "." << std::endl;
 }
 
 //Operateurs
 ClapTrap&	ClapTrap::operator=(ClapTrap const& rhs){
-	std::cout << "Assignement operator called from " << rhs.getName() << std::endl;
-	setName(rhs.getName());
-	setHitpoints(rhs.getHitpoints());
-	setEnergy(rhs.getEnergy());
-	setDamage(rhs.getDamage());
+	std::cout << "Assignement operator called from " << rhs._name << std::endl;
+	_name = rhs._name;
+	_hitpoints = rhs._hitpoints;
+	_energy = rhs._energy;
+	_damage = rhs._damage;
 	return (*this);
 }
 
 //Accesseurs
-void		ClapTrap::setName(std::string name){
-	this->_name = name;
-}
-
-void 		ClapTrap::setHitpoints(int const hitpoints){
-	this->_hitpoints = hitpoints;
-}
-
-void 		ClapTrap::setEnergy(int const energy){
-	this->_energy = energy;
-}
-
-void 		ClapTrap::setDamage(int const damage){
-	this->_damage = damage;
-}
-
 std::string ClapTrap::getName()		const{
-	return (this->_name);
+	return (_name);
 }
 
 int 		ClapTrap::getHitpoints()	const{
-	return (this->_hitpoints);
+	return (_hitpoints);
 }
 
 int 		ClapTrap::getEnergy()		const{
-	return (this->_energy);
+	return (_energy);
 }
 
 int 		ClapTrap::getDamage()		const{
-	return (this->_damage);
+	return (_damage);
 }

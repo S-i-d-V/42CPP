@@ -6,11 +6,11 @@
 //Constructeurs/Destructeurs
 DiamondTrap::DiamondTrap(){
 	std::cout << "DiamondTrap default constructor called" << std::endl;
-	ClapTrap::setName("Default_clap_name");
-	DiamondTrap::setName("Default");
-	setHitpoints(FragTrap::getHitpoints());
-	setEnergy(ScavTrap::getEnergy());
-	setDamage(FragTrap::getDamage());
+	ClapTrap::_name = "Default_clap_name";
+	_name = "Default";
+	_hitpoints = FragTrap::_hitpoints;
+	_energy = ScavTrap::_energy;
+	_damage = FragTrap::_damage;
 	return;
 }
 
@@ -21,16 +21,16 @@ DiamondTrap::DiamondTrap(DiamondTrap const &src){
 
 DiamondTrap::DiamondTrap(std::string name){
 	std::cout << "DiamondTrap constructor called for " << name << std::endl;
-	ClapTrap::setName(name + "_clap_name");
-	DiamondTrap::setName(name);
-	setHitpoints(FragTrap::getHitpoints());
-	setEnergy(ScavTrap::getEnergy());
-	setDamage(FragTrap::getDamage());
+	ClapTrap::_name = name + "_clap_name";
+	_name = name;
+	_hitpoints = FragTrap::_hitpoints;
+	_energy = ScavTrap::_energy;
+	_damage = FragTrap::_damage;
 	return;
 }
 
 DiamondTrap::~DiamondTrap(){
-	std::cout << "DiamondTrap destructor called for " << getName() << std::endl;
+	std::cout << "DiamondTrap destructor called for " << _name << std::endl;
 	return;
 }
 
@@ -40,23 +40,19 @@ void	DiamondTrap::attack(std::string const& target){
 }
 
 void	DiamondTrap::whoAmI(){
-	std::cout << "Je m'appelle " << ClapTrap::getName() << " mais mes amis m'apellent " << DiamondTrap::getName() << std::endl;
+	std::cout << "Je m'appelle " << ClapTrap::_name << " mais mes amis m'apellent " << _name << std::endl;
 }
 
 //Operateurs
 DiamondTrap&	DiamondTrap::operator=(DiamondTrap const& rhs){
-	setName(rhs.getName());
-	setHitpoints(rhs.getHitpoints());
-	setEnergy(rhs.getEnergy());
-	setDamage(rhs.getDamage());
+	_name = rhs._name;
+	_hitpoints = rhs._hitpoints;
+	_energy = rhs._energy;
+	_damage = rhs._damage;
+	return (*this);
 }
 
 //Accesseurs
-
-void	DiamondTrap::setName(std::string const name){
-	this->_name = name;
-}
-
 std::string DiamondTrap::getName() const{
-	return (this->_name);
+	return (_name);
 }

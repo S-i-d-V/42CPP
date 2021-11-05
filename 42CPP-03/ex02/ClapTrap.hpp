@@ -19,18 +19,13 @@ class ClapTrap{
 		void		beRepaired(unsigned int amount);
 
 		ClapTrap&	operator=(ClapTrap const& rhs);
-
-		void		setName(std::string const name);
-		void 		setHitpoints(int const hitpoints);
-		void 		setEnergy(int const energy);
-		void 		setDamage(int const damage);
 		
 		std::string getName()		const;
 		int 		getHitpoints()	const;
 		int 		getEnergy()		const;
 		int 		getDamage()		const;
 
-	private:
+	protected:
 		std::string _name;
 		int			_hitpoints;
 		int			_energy;

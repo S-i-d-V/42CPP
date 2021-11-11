@@ -19,7 +19,7 @@ EXEC = Polymorphism
 #FILES
 MAIN = main.cpp
 SRCSDIR = sources
-SRCS = Animal.cpp Cat.cpp Dog.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
 OBJSDIR = objects
 OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)

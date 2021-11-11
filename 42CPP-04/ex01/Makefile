@@ -14,12 +14,12 @@ STD = -std=c++98
 RM = rm -rf
 
 #PROJECT
-EXEC =
+EXEC = AnimalBrains
 
 #FILES
 MAIN = main.cpp
 SRCSDIR = sources
-SRCS = Animal.cpp Cat.cpp Dog.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
 OBJSDIR = objects
 OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)
@@ -35,7 +35,7 @@ all: $(EXEC)
 
 $(EXEC): $(OBJS)
 	echo "$(GREEN)All $(YELLOW)objects$(GREEN) compiled with success !$(CLEAR)"
-	$(CC) $(CCFLAGS) $(STD) $^ $(MAIN) -o $(EXEC)
+	$(CC) -v $(CCFLAGS) $(STD) $^ $(MAIN) -o $(EXEC)
 	echo ""; echo "$(BLUE)Compiling binary file from $(YELLOW)$(MAIN)$(BLUE) ...$(CLEAR)"
 	echo "$(GREEN)Binary $(YELLOW)$(EXEC)$(GREEN) is now ready to use !$(CLEAR)"
 

@@ -20,5 +20,6 @@ class Animal{
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 #endif

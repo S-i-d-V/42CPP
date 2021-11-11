@@ -1,9 +1,11 @@
 #include "../includes/Animal.hpp"
+#include "../includes/Brain.hpp"
 
 //Constructeur/Destructeur
 Dog::Dog(){
 	std::cout << "Dog's default constructor called" << std::endl;
 	_type = "Dog";
+	_brain = new Brain();
 	return;
 }
 
@@ -15,6 +17,7 @@ Dog::Dog(Dog const& src){
 
 Dog::~Dog(){
 	std::cout << _type << "'s (Animal) destructor called" << std::endl;
+	delete _brain;
 }
 
 //Operateurs

@@ -1,9 +1,11 @@
 #include "../includes/Animal.hpp"
+#include "../includes/Brain.hpp"
 
 //Constructeur/Destructeur
 Cat::Cat(){
 	std::cout << "Cat's default constructor called" << std::endl;
 	_type = "Cat";
+	_brain = new Brain();
 	return;
 }
 
@@ -20,6 +22,7 @@ Cat::~Cat(){
 //Operateurs
 Cat&	Cat::operator=(Cat const& rhs){
 	_type = rhs._type;
+	delete _brain;
 	return (*this);
 }
 

@@ -19,7 +19,7 @@ class ClapTrap{
 		void		beRepaired(unsigned int amount);
 
 		ClapTrap&	operator=(ClapTrap const& rhs);
-		
+	
 		std::string getName()		const;
 		int 		getHitpoints()	const;
 		int 		getEnergy()		const;
@@ -31,5 +31,9 @@ class ClapTrap{
 		int			_energy;
 		int			_damage;
 };
+
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 #endif

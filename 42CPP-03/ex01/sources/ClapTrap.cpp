@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "../includes/ClapTrap.hpp"
 
 //Constructeurs/Destructeurs
 ClapTrap::ClapTrap(){
@@ -11,14 +11,14 @@ ClapTrap::ClapTrap(){
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src){
-	std::cout << "Claptrap copy constructor called from " << src._name << std::endl;
+	std::cout << "ClapTrap copy constructor called from " << src.getName() << std::endl;
 	*this = src;
 	return;
 }
 
 
 ClapTrap::ClapTrap(std::string const name){
-	std::cout << "ClapTrap constructor called from " << name << std::endl;
+	std::cout << "ClapTrap constructor called for " << name << std::endl;
 	_name = name;
 	_hitpoints = 10;
 	_energy = 10;

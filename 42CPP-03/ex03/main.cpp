@@ -1,7 +1,4 @@
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
+#include "includes/ClapTrap.hpp"
 
 int	main(){
 	std::cout << "\033[34;1mConstructeur FragTrap :\033[0m" << std::endl;

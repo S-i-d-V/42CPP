@@ -1,5 +1,4 @@
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include "../includes/ClapTrap.hpp"
 
 //Constructeurs/Destructeurs
 ClapTrap::ClapTrap(){

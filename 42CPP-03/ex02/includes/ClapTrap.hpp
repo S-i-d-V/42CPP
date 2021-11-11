@@ -5,6 +5,7 @@
 #include <iomanip>
 
 class ScavTrap;
+class FragTrap;
 
 class ClapTrap{
 	public:
@@ -30,5 +31,8 @@ class ClapTrap{
 		int			_energy;
 		int			_damage;
 };
+
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 #endif

@@ -1,5 +1,4 @@
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "includes/ClapTrap.hpp"
 
 int	main(){
 	std::cout << "\033[34;1mConstructeur ClapTrap :\033[0m" << std::endl;

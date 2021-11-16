@@ -35,7 +35,7 @@ all: $(EXEC)
 
 $(EXEC): $(OBJS)
 	echo "$(GREEN)All $(YELLOW)objects$(GREEN) compiled with success !$(CLEAR)"
-	$(CC) -v $(CCFLAGS) $(STD) $^ $(MAIN) -o $(EXEC)
+	$(CC) $(CCFLAGS) $(STD) $^ $(MAIN) -o $(EXEC)
 	echo ""; echo "$(BLUE)Compiling binary file from $(YELLOW)$(MAIN)$(BLUE) ...$(CLEAR)"
 	echo "$(GREEN)Binary $(YELLOW)$(EXEC)$(GREEN) is now ready to use !$(CLEAR)"
 

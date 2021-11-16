@@ -14,7 +14,7 @@ Animal::Animal(Animal const& src){
 }
 
 Animal::~Animal(){
-	std::cout << _type << "'s (Animal) destructor called" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 }
 
 //Operateurs

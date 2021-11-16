@@ -1,7 +1,7 @@
 #include "../includes/Animal.hpp"
 
 //Constructeur/Destructeur
-Cat::Cat(){
+Cat::Cat() {
 	std::cout << "Cat's default constructor called" << std::endl;
 	_type = "Cat";
 	return;

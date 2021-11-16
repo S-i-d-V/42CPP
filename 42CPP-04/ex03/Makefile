@@ -14,12 +14,12 @@ STD = -std=c++98
 RM = rm -rf
 
 #PROJECT
-EXEC =
+EXEC = MateriaGame
 
 #FILES
 MAIN = main.cpp
 SRCSDIR = sources
-SRCS = Animal.cpp Cat.cpp Dog.cpp
+SRCS = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
 OBJSDIR = objects
 OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)

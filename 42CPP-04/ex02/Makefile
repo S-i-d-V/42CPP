@@ -14,12 +14,12 @@ STD = -std=c++98
 RM = rm -rf
 
 #PROJECT
-EXEC =
+EXEC = AbstractAnimal
 
 #FILES
 MAIN = main.cpp
 SRCSDIR = sources
-SRCS = Animal.cpp Cat.cpp Dog.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
 OBJSDIR = objects
 OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)

@@ -9,7 +9,7 @@ CLEAR =`tput sgr0`
 
 #ALIASES
 CC = clang++
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -g
 STD = -std=c++98
 RM = rm -rf
 

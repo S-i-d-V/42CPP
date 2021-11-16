@@ -21,6 +21,10 @@ Character::Character(Character const& src){
 }
 
 Character::~Character(){
+	for (int i = 0; i < 4; i++){
+		//if (_inventory[i] != nullptr)
+			delete _inventory[i];
+	}
 	return;
 }
 
@@ -54,7 +58,7 @@ void Character::unequip(int idx){
 }
 
 void Character::use(int idx, ICharacter& target){
-	if (idx > 3 && idx < 0)
+	if (idx > 3 && idx < 0 && _inventory[idx] == nullptr)
 		return;
 	_inventory[idx]->use(target);
 }

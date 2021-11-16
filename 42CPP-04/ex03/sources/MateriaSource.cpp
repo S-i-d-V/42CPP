@@ -8,11 +8,16 @@ MateriaSource::MateriaSource(){
 }
 
 MateriaSource::MateriaSource(MateriaSource const& src){
-	*this = src;
+	for (int i = 0; i < 4; i++)
+		_knowledge[i] = src._knowledge[i];
 	return;
 }
 
 MateriaSource::~MateriaSource(){
+	for (int i = 0; i < 4; i++){
+		//if (_knowledge[i] != nullptr)
+			delete _knowledge[i];
+	}
 	return;
 }
 
@@ -29,17 +34,17 @@ void MateriaSource::learnMateria(AMateria* m){
 		return;
 	for (int i = 0; i < 4; i++){
 		if (_knowledge[i] == nullptr){
-			_knowledge[i] = m->clone();
+			_knowledge[i] = m;
 			break;
 		}
 	}
 }
 AMateria* MateriaSource::createMateria(std::string const & type){
-	AMateria* newMateria = 0;
+	AMateria* newMateria = nullptr;
 
 	for (int i = 0; i < 4; i++){
 		if (_knowledge[i]->getType() == type){
-			newMateria = _knowledge[i];
+			newMateria = _knowledge[i]->clone();
 			break;
 		}
 	}

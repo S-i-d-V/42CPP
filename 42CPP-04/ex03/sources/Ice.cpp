@@ -2,12 +2,12 @@
 
 //Constructeurs/Destructeurs
 Ice::Ice(){
-	_type = "cure";
+	_type = "ice";
 	return;
 }
 
 Ice::Ice(Ice const& src){
-	*this = src;
+	_type = src._type;
 	return;
 }
 
@@ -23,7 +23,7 @@ Ice& Ice::operator=(Ice const& rhs){
 
 //Fonction membre
 AMateria*	Ice::clone() const{
-	AMateria* newIce = new Ice();
+	AMateria* newIce = new Ice(*this);
 	return (newIce);
 }
 

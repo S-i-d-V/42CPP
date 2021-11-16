@@ -11,7 +11,8 @@ Cat::Cat(){
 
 Cat::Cat(Cat const& src){
 	std::cout << "Cat's copy constructor called from " << src._type << std::endl;
-	_type = src._type;
+	_brain = new Brain();
+	*this = src;
 	return;
 }
 
@@ -23,9 +24,25 @@ Cat::~Cat(){
 //Operateurs
 Cat&	Cat::operator=(Cat const& rhs){
 	_type = rhs._type;
-	delete _brain;
+	for (int i = 0; i < 100; i++)
+		_brain->_ideas[i] = rhs._brain->_ideas[i];
 	return (*this);
 }
+
+//Accesseurs
+void	Cat::setIdea(std::string idea){
+	for (int i = 0; i < 100; i++){
+		if (_brain->_ideas[i] == ""){
+			_brain->_ideas[i] = idea;
+			break;
+		}
+	}
+}
+
+std::string Cat::getIdea(int n) const{
+	return (_brain->_ideas[n]);
+}
+
 
 //Fonction membre
 void	Cat::makeSound() const{

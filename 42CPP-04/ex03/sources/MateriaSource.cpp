@@ -28,18 +28,20 @@ void MateriaSource::learnMateria(AMateria* m){
 	if (!m)
 		return;
 	for (int i = 0; i < 4; i++){
-		if (_knowledge[i] == nullptr)
+		if (_knowledge[i] == nullptr){
 			_knowledge[i] = m->clone();
+			break;
+		}
 	}
 }
 AMateria* MateriaSource::createMateria(std::string const & type){
 	AMateria* newMateria = 0;
 
 	for (int i = 0; i < 4; i++){
-		if (_knowledge[i]->getType() == type)
+		if (_knowledge[i]->getType() == type){
 			newMateria = _knowledge[i];
-		else if (_knowledge[i] == nullptr)
 			break;
+		}
 	}
 	return (newMateria);
 }

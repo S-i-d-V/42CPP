@@ -11,7 +11,8 @@ Dog::Dog(){
 
 Dog::Dog(Dog const& src){
 	std::cout << "Dog's copy constructor called from " << src._type << std::endl;
-	_type = src._type;
+	_brain = new Brain();
+	*this = src;
 	return;
 }
 
@@ -23,7 +24,23 @@ Dog::~Dog(){
 //Operateurs
 Dog&	Dog::operator=(Dog const& rhs){
 	_type = rhs._type;
+	for (int i = 0; i < 100; i++)
+		_brain->_ideas[i] = rhs._brain->_ideas[i];
 	return (*this);
+}
+
+//Accesseurs
+void	Dog::setIdea(std::string idea){
+	for (int i = 0; i < 100; i++){
+		if (_brain->_ideas[i] == ""){
+			_brain->_ideas[i] = idea;
+			break;
+		}
+	}
+}
+
+std::string Dog::getIdea(int n) const{
+	return (_brain->_ideas[n]);
 }
 
 //Fonction membre

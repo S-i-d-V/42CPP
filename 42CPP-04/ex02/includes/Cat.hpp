@@ -12,6 +12,9 @@ class Cat : public Animal{
 
 		Cat& operator=(Cat const& rhs);
 
+		void	setIdea(std::string idea);
+		std::string getIdea(int n) const;
+
 		void	makeSound() const;
 
 	private:

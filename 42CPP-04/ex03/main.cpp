@@ -12,6 +12,15 @@ int	main(){
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;
+	//J'inverse et j'equipe
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	//Je desequipe
+	me->unequip(0);
+	me->unequip(1);
+	//Je recreer dans le bon ordre et j'equipe
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");

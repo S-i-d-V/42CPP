@@ -21,9 +21,11 @@ int	main(){
 	d->makeSound();
 	e->makeSound();
 
+	std::cout << std::endl << "\033[34;1mDestructeurs (Animals):\033[0m" << std::endl;
 	delete a;
 	delete b;
 	delete c;
+	std::cout << "\033[34;1mDestructeurs (WrongAnimals):\033[0m" << std::endl;
 	delete d;
 	delete e;
 

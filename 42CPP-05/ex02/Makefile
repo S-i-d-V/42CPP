@@ -9,17 +9,17 @@ CLEAR =`tput sgr0`
 
 #ALIASES
 CC = clang++
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -g
 STD = -std=c++98
 RM = rm -rf
 
 #PROJECT
-EXEC =
+EXEC = MateriaGame
 
 #FILES
 MAIN = main.cpp
 SRCSDIR = sources
-SRCS = Animal.cpp Cat.cpp Dog.cpp
+SRCS = 
 SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
 OBJSDIR = objects
 OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)

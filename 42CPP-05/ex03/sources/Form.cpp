@@ -3,6 +3,7 @@
 Form::Form() : _name("default"),  _gradeToSign(1), _gradeToExec(1){
 	//std::cout << "Form default constructor called." << std::endl;
 	_signed = false;
+	_target = "";
 	return;
 }
 
@@ -13,6 +14,7 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec) : _name(name), _g
 		throw GradeTooHighExeception();
 	//std::cout << "Form constructor called." << std::endl;
 	_signed = false;
+	_target = "";
 	return;
 }
 
@@ -30,6 +32,7 @@ Form::~Form(){
 //Operateurs
 Form&	Form::operator=(Form const& rhs){
 	_signed = rhs._signed;
+	_target = rhs._target;
 	return (*this);
 }
 
@@ -60,10 +63,19 @@ bool	Form::getSigned() const{
 	return (_signed);
 }
 
+std::string	Form::getTarget() const{
+	return (_target);
+}
+
+//Setters
+void	Form::setTarget(std::string target){
+	_target = target;
+}
+
 //Fonctions membres
 void	Form::beSigned(Bureaucrat& by){
 	if (_gradeToSign < by.getGrade()){
-		std::cout << by << " can't sign " << *this << " because of :" << std::endl;
+		std::cout << by << " can't sign " << *this << "." << std::endl;
 		throw GradeTooLowExeception();
 	}
 	_signed = true;

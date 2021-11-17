@@ -14,12 +14,12 @@ STD = -std=c++98
 RM = rm -rf
 
 #PROJECT
-EXEC = MateriaGame
+EXEC = Intern
 
 #FILES
 MAIN = main.cpp
 SRCSDIR = sources
-SRCS = 
+SRCS = Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
 OBJSDIR = objects
 OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)

@@ -5,6 +5,10 @@
 #include <iomanip>
 #include <stdexcept>
 
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat{
 	public:
 		Bureaucrat();
@@ -17,12 +21,15 @@ class Bureaucrat{
 		void				incrementGrade();
 		void				decrementGrade();
 
+		void				signForm(Form& toSign);
+		void				executeForm(Form& toExec);
+
 		std::string const	getName() const;
 		int					getGrade() const;
 
 		class GradeTooHighException : public std::exception{
 			public:
-				const char* what() const throw(){
+				char const* what() const throw(){
 					return ("Bureaucrat's grade is too high !");
 				}
 		};
@@ -30,7 +37,7 @@ class Bureaucrat{
 		class GradeTooLowException : public std::exception{
 			public:
 				const char* what() const throw(){
-					return ("Bureaucrat's Form's grade required is too low !");
+					return ("Bureaucrat's grade is too low !");
 				}
 		};
 

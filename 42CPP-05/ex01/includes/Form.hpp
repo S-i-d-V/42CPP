@@ -21,16 +21,12 @@ class Form{
 
 		void				beSigned(Bureaucrat& by);
 
-		class GradeTooHighExeception : public std::exception{
-			char const* what() const throw(){
-				return ("Form's grade required is too high !");
-			}
+		class GradeTooHighException : public std::exception{
+			char const* what() const throw();
 		};
 
-		class GradeTooLowExeception : public std::exception{
-			char const* what() const throw(){
-				return ("Form's grade required is too low !");
-			}
+		class GradeTooLowException : public std::exception{
+			char const* what() const throw();
 		};
 
 	private:

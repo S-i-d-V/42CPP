@@ -33,9 +33,13 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(Form const& rhs){
 
 //Fonction membre
 void	RobotomyRequestForm::execute(Bureaucrat const& by){
+	if (getSigned() == false){
+		std::cout << by << " can't execute " << *this << "." << std::endl;
+		throw FormNotSignedException();
+	}
 	if (getGradeToExec() < by.getGrade()){
 		std::cout << by << " can't execute " << *this << "." << std::endl;
-		throw GradeTooLowExeception();
+		throw Bureaucrat::GradeTooLowException();
 	}
 	std::cout << "* Mecanic noise *" << std::endl;
 	srand(time(NULL));

@@ -26,22 +26,16 @@ class Form{
 
 		virtual void		execute(Bureaucrat const& by) = 0;
 
-		class GradeTooHighExeception : public std::exception{
-			char const* what() const throw(){
-				return ("Form's grade required is too high !");
-			}
+		class GradeTooHighException : public std::exception{
+			char const* what() const throw();
 		};
 
-		class GradeTooLowExeception : public std::exception{
-			char const* what() const throw(){
-				return ("Form's grade required is too low !");
-			}
+		class GradeTooLowException : public std::exception{
+			char const* what() const throw();
 		};
 
-		class FormNotSigned : public std::exception{
-			char const* what() const throw(){
-				return ("Form isn't signed yet !");
-			}
+		class FormNotSignedException : public std::exception{
+			char const* what() const throw();
 		};
 
 	private:

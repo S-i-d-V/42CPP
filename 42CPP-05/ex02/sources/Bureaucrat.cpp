@@ -1,5 +1,14 @@
 #include "../includes/Bureaucrat.hpp"
 
+//Exceptions
+char const* Bureaucrat::GradeTooHighException::what() const throw(){
+	return ("Bureaucrat's grade is too high !");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
+	return ("Bureaucrat's grade is too low !");
+}
+
 //Constructeurs
 Bureaucrat::Bureaucrat() : _name("default"){
 	//std::cout << "Bureaucrat default constructor called." << std::endl;

@@ -1,5 +1,19 @@
 #include "../includes/Form.hpp"
 
+//Exceptions
+char const* Form::GradeTooHighException::what() const throw(){
+	return ("Form's grade required is too high !");
+}
+
+char const* Form::GradeTooLowException::what() const throw(){
+	return ("Form's grade required is too low !");
+}
+
+char const* Form::FormNotSignedException::what() const throw(){
+	return ("Form not signed yet !");
+}
+
+//Constructeur
 Form::Form() : _name("default"),  _gradeToSign(1), _gradeToExec(1){
 	//std::cout << "Form default constructor called." << std::endl;
 	_signed = false;
@@ -9,9 +23,9 @@ Form::Form() : _name("default"),  _gradeToSign(1), _gradeToExec(1){
 
 Form::Form(std::string name, int gradeToSign, int gradeToExec) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec){
 	if (gradeToSign > 150 || gradeToExec > 150)
-		throw GradeTooLowExeception();
+		throw GradeTooLowException();
 	else if (gradeToSign < 1 || gradeToExec < 1)
-		throw GradeTooHighExeception();
+		throw GradeTooHighException();
 	//std::cout << "Form constructor called." << std::endl;
 	_signed = false;
 	_target = "";
@@ -76,7 +90,7 @@ void	Form::setTarget(std::string target){
 void	Form::beSigned(Bureaucrat& by){
 	if (_gradeToSign < by.getGrade()){
 		std::cout << by << " can't sign " << *this << "." << std::endl;
-		throw GradeTooLowExeception();
+		throw GradeTooLowException();
 	}
 	_signed = true;
 }

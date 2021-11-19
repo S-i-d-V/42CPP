@@ -21,19 +21,13 @@ class Bureaucrat{
 		int					getGrade() const;
 
 		class GradeTooHighException : public std::exception{
-			public:
-				const char* what() const throw(){
-					return ("Bureaucrat's grade is too high !");
-				}
+				const char* what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception{
-			public:
-				const char* what() const throw(){
-					return ("Bureaucrat's Form's grade required is too low !");
-				}
+				const char* what() const throw();
 		};
-
+		
 	private:
 		std::string const	_name;
 		int					_grade;

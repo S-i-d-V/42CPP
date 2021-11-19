@@ -35,9 +35,13 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(Form const& rhs){
 
 //Fonction membre
 void	ShrubberyCreationForm::execute(Bureaucrat const& by){
+	if (getSigned() == false){
+		std::cout << by << " can't execute " << *this << "." << std::endl;
+		throw FormNotSignedException();
+	}
 	if (getGradeToExec() < by.getGrade()){
 		std::cout << by << " can't execute " << *this << "." << std::endl;
-		throw GradeTooLowExeception();
+		throw Bureaucrat::GradeTooLowException();
 	}
 	std::ofstream myFile;
 

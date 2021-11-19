@@ -32,13 +32,13 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(Form const& rhs){
 
 //Fonction membre
 void	PresidentialPardonForm::execute(Bureaucrat const& by){
-	if (getGradeToExec() < by.getGrade()){
-		std::cout << by << " can't execute " << *this << "." << std::endl;
-		throw GradeTooLowExeception();
-	}
 	if (getSigned() == false){
 		std::cout << by << " can't execute " << *this << "." << std::endl;
-		throw FormNotSigned();
+		throw FormNotSignedException();
+	}
+	if (getGradeToExec() < by.getGrade()){
+		std::cout << by << " can't execute " << *this << "." << std::endl;
+		throw Bureaucrat::GradeTooLowException();
 	}
 	std::cout << getTarget() << " as been forgiven by Zafob Beeblebrox !" << std::endl;
 }

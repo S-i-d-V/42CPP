@@ -7,7 +7,6 @@
 #include <ctime>
 #include <iomanip>
 #include <iostream>
-#include <typeinfo>
 #include <exception>
 
 class Base{

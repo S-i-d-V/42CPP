@@ -10,41 +10,23 @@ CLEAR =`tput sgr0`
 #ALIASES
 CC = clang++
 CCFLAGS = -Wall -Wextra -Werror
-STD = -std=c++98
 RM = rm -rf
 
 #PROJECT
-EXEC =
+EXEC = EasyFind
 
 #FILES
 MAIN = main.cpp
-SRCSDIR = sources
-SRCS = Animal.cpp Cat.cpp Dog.cpp
-SRCSPATH = $(addprefix $(SRCSDIR), $(SRCS))
-OBJSDIR = objects
-OBJS = $(SRCS:%.cpp=$(OBJSDIR)/%.o)
 
 #RULES
-$(OBJSDIR)/%.o: $(SRCSDIR)/%.cpp
-	echo "$(BLUE)Compiling $(YELLOW)$@$(BLUE) from $(YELLOW)$^$(BLUE) ..$(CLEAR)"
-	mkdir -p $(OBJSDIR)
-	$(CC) $(CCFLAGS) -c $< -o $@
-	echo "$(BLUE) - $(YELLOW)$@$(CLEAR) [$(GREEN)OK$(CLEAR)]"
 
 all: $(EXEC)
 
-$(EXEC): $(OBJS)
-	echo "$(GREEN)All $(YELLOW)objects$(GREEN) compiled with success !$(CLEAR)"
-	$(CC) $(CCFLAGS) $(STD) $^ $(MAIN) -o $(EXEC)
-	echo ""; echo "$(BLUE)Compiling binary file from $(YELLOW)$(MAIN)$(BLUE) ...$(CLEAR)"
+$(EXEC):
+	$(CC) $(CCFLAGS) $(MAIN) -o $(EXEC)
 	echo "$(GREEN)Binary $(YELLOW)$(EXEC)$(GREEN) is now ready to use !$(CLEAR)"
 
-clean:
-	$(RM) $(OBJSDIR)
-	echo "$(BLUE)Deleting following files :$(CLEAR)"
-	echo "$(RED) - Repertory $(YELLOW)$(OBJSDIR)/$(RED) & $(YELLOW)content$(RED) deleted.$(CLEAR)"
-
-fclean: clean
+fclean:
 	$(RM) $(EXEC)
 	echo "$(RED) - Binary $(YELLOW)$(EXEC)$(RED) deleted.$(CLEAR)"
 

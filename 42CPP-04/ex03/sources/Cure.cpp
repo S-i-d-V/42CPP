@@ -23,8 +23,7 @@ Cure&		Cure::operator=(Cure const& rhs){
 
 //Fonction membre
 AMateria*	Cure::clone() const{
-	AMateria* newCure = new Cure(*this);
-	return (newCure);
+	return (new Cure(*this));
 }
 
 void		Cure::use(ICharacter& target) const{

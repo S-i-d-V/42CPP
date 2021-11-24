@@ -16,8 +16,6 @@ Character::Character(std::string name){
 }
 
 Character::Character(Character const& src){
-	for (int i = 0; i < 4; i++)
-		_inventory[i] = nullptr;
 	*this = src;
 	return;
 }
@@ -38,7 +36,7 @@ Character& Character::operator=(Character const& rhs){
 			delete _inventory[i];
 			_inventory[i] = nullptr;
 		}
-		_inventory[i] = rhs._inventory[i];
+		_inventory[i] = rhs._inventory[i]->clone();
 	}
 	return (*this);
 }
@@ -52,16 +50,17 @@ void Character::equip(AMateria* m){
 	if (!m)
 		return;
 	for (int i = 0; i < 4; i++){
-		if (_inventory[i] == nullptr){
+		if (_inventory[i] == nullptr && _inventory[i] != m){
 			_inventory[i] = m;
-			break;
+			return;
 		}
 	}
 }
 
 void Character::unequip(int idx){
-	if (idx < 4 && idx >= 0)
-		_inventory[idx] = nullptr;
+	if (idx < 4 && idx >= 0){
+			_inventory[idx] = nullptr;
+	}
 }
 
 void Character::use(int idx, ICharacter& target){

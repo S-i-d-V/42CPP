@@ -8,14 +8,13 @@ MateriaSource::MateriaSource(){
 }
 
 MateriaSource::MateriaSource(MateriaSource const& src){
-	for (int i = 0; i < 4; i++)
-		_knowledge[i] = src._knowledge[i];
+	*this = src;
 	return;
 }
 
 MateriaSource::~MateriaSource(){
 	for (int i = 0; i < 4; i++){
-		if (_knowledge[i] != nullptr)
+		//if (_knowledge[i] != nullptr)
 			delete _knowledge[i];
 	}
 	return;
@@ -23,8 +22,13 @@ MateriaSource::~MateriaSource(){
 
 //Operateurs
 MateriaSource& MateriaSource::operator=(MateriaSource const& rhs){
-	for (int i = 0; i < 4; i++)
-		_knowledge[i] = rhs._knowledge[i];
+	for (int i = 0; i < 4; i++){
+		if (_knowledge[i] != nullptr){
+			delete _knowledge[i];
+			_knowledge[i] = nullptr;
+		}
+		_knowledge[i] = rhs._knowledge[i]->clone();
+	}
 	return (*this);
 }
 
@@ -35,18 +39,16 @@ void MateriaSource::learnMateria(AMateria* m){
 	for (int i = 0; i < 4; i++){
 		if (_knowledge[i] == nullptr){
 			_knowledge[i] = m;
-			break;
+			return;
 		}
 	}
+	delete m;
 }
 AMateria* MateriaSource::createMateria(std::string const & type){
-	AMateria* newMateria = nullptr;
-
 	for (int i = 0; i < 4; i++){
-		if (_knowledge[i]->getType() == type){
-			newMateria = _knowledge[i]->clone();
-			break;
+		if (_knowledge[i] != nullptr && _knowledge[i]->getType() == type){
+			return(_knowledge[i]->clone());
 		}
 	}
-	return (newMateria);
+	return (nullptr);
 }

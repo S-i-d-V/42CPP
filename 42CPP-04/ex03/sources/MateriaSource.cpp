@@ -15,7 +15,7 @@ MateriaSource::MateriaSource(MateriaSource const& src){
 
 MateriaSource::~MateriaSource(){
 	for (int i = 0; i < 4; i++){
-		//if (_knowledge[i] != nullptr)
+		if (_knowledge[i] != nullptr)
 			delete _knowledge[i];
 	}
 	return;

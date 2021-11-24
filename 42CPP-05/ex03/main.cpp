@@ -6,17 +6,17 @@ int	main(){
 		Intern intern;
 		Bureaucrat bob("Bob", 1);
 
-		std::cout << "\033[34;1mCan sign all form\033[0m" << std::endl;
+		std::cout << "\033[34;1mCreate all forms\033[0m" << std::endl;
 		Form *form1 = intern.makeForm("presidential pardon", "Jimmy Hendrix");
 		Form *form2 = intern.makeForm("robotomy request", "John Rachid");
 		Form *form3 = intern.makeForm("shrubbery creation", "Woodland");
 
-		std::cout << std::endl << "\033[34;1mCan sign all form\033[0m" << std::endl;
+		std::cout << std::endl << "\033[34;1mCan sign all forms\033[0m" << std::endl;
 		bob.signForm(*form1);
 		bob.signForm(*form2);
 		bob.signForm(*form3);
 
-		std::cout << std::endl << "\033[34;1mCan execut all form\033[0m" << std::endl;
+		std::cout << std::endl << "\033[34;1mCan execut all forms\033[0m" << std::endl;
 		std::cout << "\033[33mShrubberyCreationForm\033[0m" << std::endl;
 		bob.executeForm(*form1);
 

@@ -4,6 +4,7 @@ int	main(){
 	//Exception constructeur
 	try{
 		std::cout << "\033[34;1mConstructor GradeTooHighException\033[0m" << std::endl;
+		std::cout << "\033[33mCreation d'un form grade 0\033[0m" << std::endl;
 		Form high("tooHigh", 0, 0);
 	}
 	catch (std::exception& error){
@@ -11,6 +12,7 @@ int	main(){
 	}
 	try{
 		std::cout << std::endl << "\033[34;1mConstructor GradeTooLowException\033[0m" << std::endl;
+		std::cout << "\033[33mCreation d'un form grade 151\033[0m" << std::endl;
 		Form low("tooLow", 151, 151);
 	}
 	catch (std::exception& error){

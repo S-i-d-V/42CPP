@@ -60,7 +60,6 @@ int	Bureaucrat::getGrade() const{
 
 
 //Fonctions membres
-//Fonctions membres
 void	Bureaucrat::incrementGrade(){
 	if (_grade - 1 < 1)
 		throw GradeTooHighException();

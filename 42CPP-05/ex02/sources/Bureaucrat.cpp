@@ -79,6 +79,6 @@ void	Bureaucrat::signForm(Form& toSign){
 }
 
 void	Bureaucrat::executeForm(Form& toExec){
-	std::cout << *this << " executs " << toExec << "." << std::endl;
 	toExec.execute(*this);
+	std::cout << *this << " executs " << toExec << "." << std::endl;
 }

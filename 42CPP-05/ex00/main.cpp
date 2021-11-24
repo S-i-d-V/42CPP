@@ -4,6 +4,7 @@ int	main(){
 	//Exception constructeur
 	try{
 		std::cout << "\033[34;1mConstructor GradeTooHighException\033[0m" << std::endl;
+		std::cout << "\033[33mCreation d'un grade 0\033[0m" << std::endl;
 		Bureaucrat high("tooHigh", 0);
 	}
 	catch (std::exception& error){
@@ -11,6 +12,7 @@ int	main(){
 	}
 	try{
 		std::cout << std::endl << "\033[34;1mConstructor GradeTooLowException\033[0m" << std::endl;
+		std::cout << "\033[33mCreation d'un grade 151\033[0m" << std::endl;
 		Bureaucrat low("tooLow", 151);
 	}
 	catch (std::exception& error){
@@ -41,6 +43,7 @@ int	main(){
 	try{
 		std::cout << std::endl << "\033[34;1mIncrement GradeTooHighException\033[0m" << std::endl;
 		Bureaucrat bob("Bob", 1);
+		std::cout << "\033[33mIncrementation de\033[33m" << bob << "\033[0m" << std::endl;
 		bob.incrementGrade();
 	}
 	catch (std::exception& error){
@@ -49,6 +52,7 @@ int	main(){
 	try{
 		std::cout << std::endl << "\033[34;1mDecrement GradeTooHighException\033[0m" << std::endl;
 		Bureaucrat bob("Bob", 150);
+		std::cout << "\033[33mDecrementation de\033[33m" << bob << "\033[0m" << std::endl;
 		bob.decrementGrade();
 	}
 	catch (std::exception& error){

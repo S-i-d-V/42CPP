@@ -56,5 +56,4 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& by){
 	myFile << "  _ -  | |   -_		" << std::endl;
 	myFile << "      // \\\\		" << std::endl;
 	myFile.close();
-	std::cout << "A tree has been planted in " << getTarget() << std::endl;
 }

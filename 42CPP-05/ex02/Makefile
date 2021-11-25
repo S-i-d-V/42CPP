@@ -45,7 +45,7 @@ clean:
 	echo "$(RED) - Repertory $(YELLOW)$(OBJSDIR)/$(RED) & $(YELLOW)content$(RED) deleted.$(CLEAR)"
 
 fclean: clean
-	$(RM) $(EXEC) someone
+	$(RM) $(EXEC) Woodland
 	echo "$(RED) - Binary $(YELLOW)$(EXEC)$(RED) deleted.$(CLEAR)"
 
 newline:

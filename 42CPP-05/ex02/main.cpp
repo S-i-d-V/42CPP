@@ -45,7 +45,7 @@ int	main(){
 	}
 
 	try{
-		ShrubberyCreationForm	form1("someone");
+		ShrubberyCreationForm	form1("Woodland");
 		PresidentialPardonForm	form2("someone");
 		RobotomyRequestForm		form3("someone");
 		Bureaucrat				bob("Bob", 1);

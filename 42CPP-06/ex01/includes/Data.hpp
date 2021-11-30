@@ -14,7 +14,7 @@ class Data{
 		Data& operator=(Data const& rhs);
 
 		int			_firstData;
-		int			_secondData;
+		float		_secondData;
 		std::string	_differentData;
 };
 

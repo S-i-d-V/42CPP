@@ -27,17 +27,22 @@ void	identify(Base* p){
 }
 
 void	identify(Base& p){
-	identify(&p);
+	if ( dynamic_cast<A*>(&p) != NULL)
+		std::cout << "A" << std::endl;
+	else if ( dynamic_cast<B*>(&p) != NULL)
+		std::cout << "B" << std::endl;
+	else if ( dynamic_cast<C*>(&p) != NULL)
+		std::cout << "C" << std::endl;
 }
 
 int	main(){
 	//Idenity with generate*
-	std::cout << "\033[34;1mBy pointer\033[0m" << std::endl;
+	std::cout << "\033[34;1mIdentify by pointer\033[0m" << std::endl;
 	Base* ptr = generate();
 	identify(ptr);
 
 	//Identify with ref;
-	std::cout << std::endl << "\033[34;1mBy reference\033[0m" << std::endl;
+	std::cout << std::endl << "\033[34;1mIdentify by reference\033[0m" << std::endl;
 	Base &ref = *ptr;
 	identify(ref);
 

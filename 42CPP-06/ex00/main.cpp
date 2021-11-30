@@ -80,7 +80,7 @@ int		getInt(double toConvert){
 		throw ImpossibleException();
 	if (std::isnan(toConvert) || std::isinf(toConvert))
 		throw ImpossibleException();
-	return (static_cast<char>(toConvert));
+	return (static_cast<int>(toConvert));
 }
 
 float	 getFloat(double toConvert){
@@ -142,6 +142,5 @@ int	main(int ac, char **av){
 	}
 	else
 		std::cout << "\033[31;1mWrong argument !\033[0m" << std::endl;
-	
 	return (0);
 }

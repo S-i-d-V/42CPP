@@ -3,7 +3,7 @@
 //Constructeurs
 Data::Data(){
 	_firstData = 42;
-	_secondData = 99;
+	_secondData = 99.67;
 	_differentData = "Another type of data";
 	return;
 }

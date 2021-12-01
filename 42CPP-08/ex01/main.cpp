@@ -7,7 +7,7 @@ int		main(){
 		try{
 			Span				span(6);
 
-			std::cout << std::endl << "\033[34;1mFilling a span(6) with random numbers via addNumber(int):\033[0m" << std::endl;
+			std::cout << std::endl << "\033[34;1mFilling a span(6) with 6 randoms numbers via addNumber(int):\033[0m" << std::endl;
 			std::srand(unsigned(std::time(NULL)));
 			for (int i = 0; i < 6; i++){
 				span.addNumber(std::rand() % 99);

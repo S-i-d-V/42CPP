@@ -12,9 +12,6 @@ class Animal{
 
 		Animal& operator=(Animal const& rhs);
 
-		virtual void	setIdea(std::string idea) = 0;
-		virtual std::string getIdea(int n) const = 0;
-
 		virtual void	makeSound() const;
 
 	protected:

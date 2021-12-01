@@ -34,6 +34,10 @@ int	main(){
 	}
 
 	std::stack<int> s(mstack);
+	std::cout << std::endl << "\033[34;1mCopying the stack :\033[0m" << std::endl;
+	std::cout << "\033[33mTop of the copy : \033[0m" << s.top() << std::endl;
+	std::cout << "\033[33mSize of the copy : \033[0m" << s.size() << std::endl;
+
 
 	return (0);
 }

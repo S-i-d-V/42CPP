@@ -35,7 +35,7 @@ class Array{
 			if (rhs._len > 0){
 				_len = rhs._len;
 				_array = new T[_len];
-				for (int i = 0; i < _len; i++){
+				for (unsigned int i = 0; i < _len; i++){
 					_array[i] = rhs._array[i];
 				}
 			}

@@ -52,5 +52,57 @@ int main(){
 	catch (std::exception& error){
 		std::cout << "[\033[31;1mERROR\033[0m] " << error.what() << std::endl;
 	}
+
+	//Main de test du sujet
+	{
+		std::cout << std::endl << "\033[34;1mSubject main :\033[0m" << std::endl;
+		Array<int> numbers(750);
+    	int* mirror = new int[750];
+
+    	srand(time(NULL));
+    	for (int i = 0; i < 750; i++)
+    	{
+    	    const int value = rand();
+    	    numbers[i] = value;
+    	    mirror[i] = value;
+    	}
+
+    	//SCOPE
+    	{
+    	    Array<int> tmp = numbers;
+    	    Array<int> test(tmp);
+    	}
+
+    	for (int i = 0; i < 750; i++)
+    	{
+    	    if (mirror[i] != numbers[i])
+    	    {
+    	        std::cerr << "didn't save the same value!!" << std::endl;
+    	        return 1;
+    	    }
+    	}
+    	try
+    	{
+    	    numbers[-2] = 0;
+    	}
+    	catch(const std::exception& e)
+    	{
+    	    std::cerr << e.what() << '\n';
+    	}
+    	try
+    	{
+    	    numbers[750] = 0;
+    	}
+    	catch(const std::exception& e)
+    	{
+    	    std::cerr << e.what() << '\n';
+    	}
+
+    	for (int i = 0; i < 750; i++)
+    	{
+    	    numbers[i] = rand();
+    	}
+    	delete [] mirror;//
+	}
 	return (0);
 }

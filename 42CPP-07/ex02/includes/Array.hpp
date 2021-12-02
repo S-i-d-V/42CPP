@@ -8,7 +8,7 @@ template<typename T>
 class Array{
 	public:
 		Array(){
-			_array = nullptr;
+			_array = new T();
 			_len = 0;
 		}
 

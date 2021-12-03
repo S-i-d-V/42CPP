@@ -56,10 +56,22 @@ int	Span::shortestSpan(){
 		throw NotEnoughNumbersException();
 	std::vector<int> tmp(_numbers);
 	std::sort(tmp.begin(), tmp.end());
-	if (*(tmp.begin() + 1) - *(tmp.begin()) > *(tmp.end() - 1) - *(tmp.end() - 2))
-		return (*(tmp.end() - 1) - *(tmp.end() - 2));
-	else
-		return (*(tmp.begin() + 1) - *(tmp.begin()));
+	unsigned long i = 0;
+	unsigned long j = 0;
+	int shortest = -1;
+	while (i < tmp.size() - 1){
+		j = i + 1;
+		while (j < tmp.size()){
+			if (shortest == -1)
+				shortest = tmp[j] - tmp[i];
+			else if ((tmp[j] - tmp[i] >= 0) && ((tmp[j] - tmp[i]) < shortest)){
+				shortest = tmp[j] - tmp[i];
+			}
+			j++;
+		}
+		i++;
+	}
+	return (shortest);
 }
 
 int	Span::longestSpan(){

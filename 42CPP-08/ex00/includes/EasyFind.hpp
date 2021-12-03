@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <list>
+#include <vector>
 
 class NotFoundException : public std::exception{
 	char const* what() const throw(){

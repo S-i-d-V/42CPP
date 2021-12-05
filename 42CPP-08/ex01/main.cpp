@@ -1,6 +1,11 @@
 #include "includes/span.hpp"
 #include <ctime>
 
+int gen(){
+	static int i = 0;
+	return (++i);
+}
+
 int		main(){
 	//Tests basiques
 	{
@@ -44,7 +49,7 @@ int		main(){
 			std::cout << "[\033[31;1mERROR\033[0m] " << error.what() << std::endl;
 		}
 	}
-	//Tests avec 10000 nombres
+	//Tests iterateurs avec 10000 nombres
 	{
 		try{
 			std::cout << std::endl << "\033[34;1mFilling a span(10000) with with a range of iterator:\033[0m" << std::endl;
@@ -52,28 +57,13 @@ int		main(){
 			//Vecteur test afin d'utiliser ses iterateurs
 			std::vector<int>	test(10000);
 			std::srand(unsigned(std::time(NULL)));
-			std::generate(test.begin(), test.end(), );
+			std::generate(test.begin(), test.end(), gen);
 			std::sort(test.begin(), test.end());
 	
 			//Addings numbers with a range of iterators
 			span.addNumbers(test.begin(), test.end());
 	
-			std::cout << "\033[33;1mLongest span :\033[0m " << std::endl;
-			std::cout << "\033[33mMin :\033[0m " << *(test.begin()) << std::endl;
-			std::cout << "\033[33mMax :\033[0m " << *(test.end() - 1) << std::endl;
-			std::cout << *(test.end() - 1) << " - " << *(test.begin()) << " = ";
 			std::cout << "\033[33mLongest span :\033[0m " << span.longestSpan() << std::endl;
-	
-			std::cout << std::endl << "\033[33;1mShortest span :\033[0m " << std::endl;
-			std::cout << "\033[33mMin :\033[0m " << *(test.begin()) << std::endl;
-			std::cout << "\033[33mMin + 1 :\033[0m " << *(test.begin() + 1) << std::endl;
-			std::cout << "\033[33mMax :\033[0m " << *(test.end() - 1) << std::endl;
-			std::cout << "\033[33mMax - 1 :\033[0m " << *(test.end() - 2) << std::endl;
-	
-			if (*(test.end() - 1) - *(test.end() - 2) < *(test.begin() + 1) - *(test.begin()))
-				std::cout << *(test.end() - 1) << " - " << *(test.end() - 2) << " = ";
-			else
-				std::cout <<*(test.begin() + 1) << " - " << *(test.begin()) << " = ";
 			std::cout << "\033[33mShortest span :\033[0m " << span.shortestSpan() << std::endl;
 		}
 		catch (std::exception& error){
